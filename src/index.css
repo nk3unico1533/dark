@@ -1,0 +1,47 @@
+:root {
+  --neon-purple: hsl(266 83% 66%);
+  --neon-violet: hsl(280 91% 68%);
+  --neon-fuchsia: hsl(300 76% 68%);
+  --neon-cyan: hsl(190 100% 65%);
+  --neon-pink: hsl(330 81% 68%);
+}
+
+body {
+  @apply bg-black text-white overflow-x-hidden;
+  background: radial-gradient(circle at 20% 20%, hsl(266 80% 10%), hsl(280 80% 5%));
+}
+
+/* Glass panels */
+.glass-panel {
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+}
+
+/* Animated border */
+.rgb-border-animated {
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    90deg,
+    var(--neon-purple),
+    var(--neon-violet),
+    var(--neon-fuchsia),
+    var(--neon-cyan),
+    var(--neon-pink)
+  );
+  border-image-slice: 1;
+  animation: rgbGlow 3s linear infinite;
+}
+
+@keyframes rgbGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
